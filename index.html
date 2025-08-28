@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DECOLA - Currículo Profissional</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #b294ff, #8a2be2, #6a11cb); /* Lilás suave a roxo profundo */
+      color: #333;
+      min-height: 100vh;
+      padding: 15px;
+    }
+
+    .container {
+      max-width: 100%;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    header {
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      width: 150px;
+      height: auto;
+      display: block;
+      margin: 0 auto 10px auto;
+    }
+
+    h1 {
+      font-size: 2rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+      font-weight: 700;
+      text-align: center;
+      color: white;
+    }
+
+    .slogan {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 25px;
+      font-weight: 500;
+      text-align: center;
+      color: white;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      margin: 20px auto;
+      max-width: 500px;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin: 15px 0 6px;
+      font-weight: 600;
+      color: #444;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    button {
+      background: #6a11cb;
+      color: white;
+      border: none;
+      padding: 14px 24px;
+      font-size: 1.1rem;
+      border-radius: 50px;
+      cursor: pointer;
+      margin: 10px 5px;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+
+    button:hover {
+      background: #5a0fb0;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
+    }
+
+    button.secondary {
+      background: #4ecdc4;
+    }
+
+    button.secondary:hover {
+      background: #44c7b0;
+    }
+
+    button.clear {
+      background: #ccc;
+      color: #333;
+    }
+
+    button.clear:hover {
+      background: #bbb;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* === DICA DO DIA - VISÍVEL E CLARA === */
+    .dica {
+      font-style: italic;
+      color: white;
+      margin: 20px auto;
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      max-width: 500px;
+      text-align: center;
+      font-size: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    }
+
+    /* === CURRÍCULO PROFISSIONAL === */
+    .curriculo {
+      background: white;
+      padding: 0;
+      margin: 40px auto;
+      max-width: 800px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #333;
+      text-align: left;
+    }
+
+    .curriculo h1 {
+      font-size: 24px;
+      color: #2575fc;
+      margin-bottom: 5px;
+      border-bottom: 2px solid #2575fc;
+      padding-bottom: 5px;
+    }
+
+    .curriculo .info {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .curriculo h2 {
+      font-size: 18px;
+      color: #2575fc;
+      margin: 20px 0 10px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 5px;
+    }
+
+    .curriculo p, .curriculo ul {
+      margin-bottom: 10px;
+    }
+
+    .curriculo ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+
+    .curriculo li {
+      margin-bottom: 5px;
+    }
+
+    /* === IMPRESSÃO: TUDO INVISÍVEL EXCETO O CURRÍCULO === */
+    @media print {
+      body {
+        background: white !important;
+        -webkit-print-color-adjust: exact;
+      }
+      .container {
+        max-width: 800px;
+        padding: 0;
+        margin: 0;
+      }
+      header, button, .slogan, .card, .dica, footer {
+        display: none !important;
+      }
+      .curriculo {
+        box-shadow: none;
+        border: none;
+        background: transparent;
+        padding: 0;
+        margin: 0;
+      }
+      .curriculo h1, .curriculo h2 {
+        color: #000;
+      }
+      .curriculo .info {
+        color: #000;
+      }
+      .curriculo h2, .curriculo p {
+        page-break-inside: avoid;
+      }
+      /* Remove automaticamente data, hora e URL do navegador */
+      @page {
+        margin: 0.5cm;
+        size: A4;
+      }
+    }
+
+    /* === RESPONSIVO === */
+    @media (max-width: 600px) {
+      .container {
+        padding: 10px;
+      }
+      .curriculo, .card {
+        padding: 15px;
+        margin: 10px;
+      }
+      .curriculo h1 {
+        font-size: 20px;
+      }
+      .curriculo h2 {
+        font-size: 16px;
+      }
+      button {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+      }
+      .logo {
+        width: 120px;
+      }
+      .dica {
+        font-size: 13px;
+        padding: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- LOGO CENTRALIZADA -->
+    <header>
+      <img src="DECOLA.png" alt="Logo DECOLA" class="logo">
+      <h1><strong>🚀 DECOLA</strong></h1>
+      <p class="slogan">Planeje, Acredite, Conquiste</p>
+    </header>
+
+    <!-- FORMULÁRIO -->
+    <div class="card" id="formCard">
+      <label>Nome completo</label>
+      <input type="text" id="nome" placeholder="Ex: Ana Silva">
+
+      <label>Idade</label>
+      <input type="number" id="idade" placeholder="Ex: 16">
+
+      <label>Bairro e Cidade</label>
+      <input type="text" id="local" placeholder="Ex: Jardim Esperança, Rio de Janeiro">
+
+      <label>WhatsApp</label>
+      <input type="text" id="whatsapp" placeholder="Ex: (21) 99876-5432">
+
+      <label>E-mail (opcional)</label>
+      <input type="email" id="email" placeholder="Ex: ana@email.com">
+
+      <label>Escolaridade</label>
+      <select id="escolaridade">
+        <option value="">Selecione</option>
+        <option value="Ensino Médio em curso">Ensino Médio em curso</option>
+        <option value="Ensino Médio concluído">Ensino Médio concluído</option>
+      </select>
+
+      <label>Nome da escola</label>
+      <input type="text" id="escola" placeholder="Ex: E.M. José do Povo">
+
+      <label>Habilidades</label>
+      <input type="text" id="habilidades" placeholder="Ex: organização, pontualidade, informática">
+
+      <label>Cursos (opcional)</label>
+      <input type="text" id="cursos" placeholder="Ex: informática básica, inglês">
+
+      <label>Experiência (opcional)</label>
+      <input type="text" id="experiencia" placeholder="Ex: ajudante em evento, monitor na igreja">
+
+      <label>Objetivo profissional</label>
+      <textarea id="objetivo" placeholder="Ex: Buscar vaga de jovem aprendiz na área administrativa"></textarea>
+
+      <button onclick="gerarPerfil()">Montar Meu Perfil</button>
+      <button class="clear" onclick="limparCampos()">Limpar Campos</button>
+    </div>
+
+    <!-- CURRÍCULO GERADO -->
+    <div class="curriculo hidden" id="curriculoCard">
+      <h1 id="curriculoNome">Seu Nome</h1>
+      <div class="info" id="curriculoInfo"></div>
+
+      <h2>Objetivo Profissional</h2>
+      <p id="curriculoObjetivo"></p>
+
+      <h2>Educação</h2>
+      <p id="curriculoEducacao"></p>
+
+      <h2>Habilidades</h2>
+      <p id="curriculoHabilidades"></p>
+
+      <div id="sectionCursos">
+        <h2>Cursos</h2>
+        <p id="curriculoCursos"></p>
+      </div>
+
+      <div id="sectionExperiencia">
+        <h2>Experiência</h2>
+        <p id="curriculoExperiencia"></p>
+      </div>
+
+      <button onclick="imprimirPerfil()">Salvar como PDF</button>
+      <button class="secondary" onclick="mostrarDica()">Dica do Dia</button>
+      <button onclick="voltarForm()">Tentar de Novo</button>
+    </div>
+
+    <!-- DICA DO DIA - AGORA VISÍVEL -->
+    <div class="dica" id="dicaDia">Carregando dica...</div>
+  </div>
+
+  <script>
+    const dicas = [
+      "Você não precisa ter todas as respostas para dar o primeiro passo.",
+      "Crescer nem sempre é rápido, mas é sempre possível.",
+      "O seu esforço de hoje está construindo o seu amanhã.",
+      "Pequenas vitórias também merecem comemoração.",
+      "A jornada mais longa começa com um único 'sim' para você.",
+      "Você é mais resiliente do que imagina.",
+      "Não desista só porque é difícil. Desista quando for impossível — e isso raramente acontece.",
+      "O seu ritmo é válido. Não precisa correr se você está avançando.",
+      "Cada erro é um degrau a mais na escada do aprendizado.",
+      "Você não está atrasado. Está no tempo certo da sua transformação.",
+      "O mundo precisa da sua luz — mesmo que você ainda não a veja.",
+      "Sonhar alto não é exagero, é coragem disfarçada.",
+      "Acreditar em si mesmo é o primeiro ato de revolução.",
+      "Você não precisa mudar tudo hoje. Basta mudar uma coisa.",
+      "O seu valor não diminui porque você tropeçou.",
+      "O importante não é nunca falhar, é nunca parar.",
+      "Você já é forte por ter resistido até aqui.",
+      "O impossível só espera por alguém que ouse tentar.",
+      "Cada dia é uma nova chance de recomeçar.",
+      "Sua coragem não precisa ser perfeita — só precisa existir.",
+      "Você é o autor da sua história. Escreva com coragem.",
+      "O medo não pode ser eliminado, mas pode ser enfrentado.",
+      "Avançar mesmo com dúvidas é sinal de bravura.",
+      "Você merece tentar, errar, levantar e tentar de novo.",
+      "O seu potencial é infinito. Só depende de você acreditar."
+    ];
+
+    function gerarPerfil() {
+      const nome = document.getElementById("nome").value.trim();
+      const idade = document.getElementById("idade").value.trim();
+      const local = document.getElementById("local").value.trim();
+      const whatsapp = document.getElementById("whatsapp").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const escolaridade = document.getElementById("escolaridade").value.trim();
+      const escola = document.getElementById("escola").value.trim();
+      const habilidades = document.getElementById("habilidades").value.trim();
+      const cursos = document.getElementById("cursos").value.trim();
+      const experiencia = document.getElementById("experiencia").value.trim();
+      const objetivo = document.getElementById("objetivo").value.trim();
+
+      if (!nome || !idade || !local || !whatsapp || !escolaridade || !escola || !habilidades || !objetivo) {
+        alert("Por favor, preencha todos os campos obrigatórios.");
+        return;
+      }
+
+      // Atualiza o currículo
+      document.getElementById("curriculoNome").textContent = `${nome} (${idade} anos)`;
+      document.getElementById("curriculoInfo").textContent = `${local} | ${whatsapp}${email ? ' | ' + email : ''}`;
+      document.getElementById("curriculoObjetivo").textContent = objetivo;
+      document.getElementById("curriculoEducacao").textContent = `${escolaridade} - ${escola}`;
+      document.getElementById("curriculoHabilidades").textContent = habilidades;
+
+      // Cursos (opcional)
+      const sectionCursos = document.getElementById("sectionCursos");
+      if (cursos) {
+        document.getElementById("curriculoCursos").textContent = cursos;
+        sectionCursos.style.display = "block";
+      } else {
+        sectionCursos.style.display = "none";
+      }
+
+      // Experiência (opcional)
+      const sectionExperiencia = document.getElementById("sectionExperiencia");
+      if (experiencia) {
+        document.getElementById("curriculoExperiencia").textContent = experiencia;
+        sectionExperiencia.style.display = "block";
+      } else {
+        sectionExperiencia.style.display = "none";
+      }
+
+      // Mostra o currículo
+      document.getElementById("formCard").classList.add("hidden");
+      document.getElementById("curriculoCard").classList.remove("hidden");
+
+      // Mostra dica inicial
+      document.getElementById("dicaDia").textContent = dicas[0];
+    }
+
+    function mostrarDica() {
+      const random = Math.floor(Math.random() * dicas.length);
+      document.getElementById("dicaDia").textContent = dicas[random];
+    }
+
+    function voltarForm() {
+      document.getElementById("curriculoCard").classList.add("hidden");
+      document.getElementById("formCard").classList.remove("hidden");
+    }
+
+    function imprimirPerfil() {
+      window.print();
+    }
+
+    // ✅ CORREÇÃO: LIMPAR CAMPOS FUNCIONANDO
+    function limparCampos() {
+      // Limpa todos os inputs
+      document.getElementById("nome").value = "";
+      document.getElementById("idade").value = "";
+      document.getElementById("local").value = "";
+      document.getElementById("whatsapp").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("escolaridade").selectedIndex = 0;
+      document.getElementById("escola").value = "";
+      document.getElementById("habilidades").value = "";
+      document.getElementById("cursos").value = "";
+      document.getElementById("experiencia").value = "";
+      document.getElementById("objetivo").value = "";
+    }
+  </script>
+</body>
+</html>
