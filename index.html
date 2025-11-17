@@ -300,7 +300,7 @@
       <label>WhatsApp</label>
       <input type="text" id="whatsapp" placeholder="Ex: (21) 99876-5432">
 
-      <label>E-mail (opcional)</label>
+      <label>E-mail</label>
       <input type="email" id="email" placeholder="Ex: ana@email.com">
 
       <label>Escolaridade</label>
@@ -316,14 +316,14 @@
       <label>Habilidades</label>
       <input type="text" id="habilidades" placeholder="Ex: organização, pontualidade, informática">
 
-      <label>Cursos (opcional)</label>
-      <input type="text" id="cursos" placeholder="Ex: informática básica, inglês">
+      <label>Cursos</label>
+      <input type="text" id="cursos" placeholder="Ex: informática básica, inglês, outros">
 
-      <label>Experiência (opcional)</label>
-      <input type="text" id="experiencia" placeholder="Ex: ajudante em evento, monitor na igreja">
+      <label>Experiência</label>
+      <input type="text" id="experiencia" placeholder="Ex: ajudante em evento, monitor na igreja, outros">
 
       <label>Objetivo profissional</label>
-      <textarea id="objetivo" placeholder="Ex: Buscar vaga de jovem aprendiz na área administrativa"></textarea>
+      <textarea id="objetivo" placeholder="Ex: Buscar vaga de jovem aprendiz( primeiro emprego ) na área ( colocar a área desejada )"></textarea>
 
       <!-- Botão que executa a função de gerar currículo -->
       <button onclick="gerarPerfil()">Montar Meu Perfil</button>
@@ -410,7 +410,7 @@
       const objetivo = document.getElementById("objetivo").value.trim();
 
       // Validação simples para garantir que campos obrigatórios foram preenchidos
-      if (!nome || !idade || !local || !whatsapp || !escolaridade || !escola || !habilidades || !objetivo) {
+      if (!nome || !idade || !local || !whatsapp ||!email || !escolaridade || !escola || !habilidades || !objetivo) {
         alert("Por favor, preencha todos os campos obrigatórios.");
         return;
       }
@@ -483,3 +483,4 @@
 </body>
 
 </html>
+
