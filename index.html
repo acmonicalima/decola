@@ -4,33 +4,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>DECOLA - Currículo Profissional</title>
+  <!-- Fonte Poppins importada do Google Fonts para melhor aparência -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    /* Reset básico para remover margens e padding padrão */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
+    /* Estilo do corpo da página com fonte e fundo degradê lilás/roxo */
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #b294ff, #8a2be2, #6a11cb); /* Lilás suave a roxo profundo */
+      background: linear-gradient(135deg, #b294ff, #8a2be2, #6a11cb);
       color: #333;
       min-height: 100vh;
       padding: 15px;
     }
 
+    /* Container para centralizar conteúdo e limitar largura */
     .container {
       max-width: 100%;
       margin: 0 auto;
       text-align: left;
     }
 
+    /* Estilo para cabeçalho com texto branco */
     header {
       color: white;
       margin-bottom: 20px;
     }
 
+    /* Logo centralizada e com tamanho fixo */
     .logo {
       width: 150px;
       height: auto;
@@ -38,6 +44,7 @@
       margin: 0 auto 10px auto;
     }
 
+    /* Título principal estilizado */
     h1 {
       font-size: 2rem;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
@@ -46,6 +53,7 @@
       color: white;
     }
 
+    /* Slogan do app, texto menor e levemente transparente */
     .slogan {
       font-size: 1.1rem;
       opacity: 0.9;
@@ -55,6 +63,7 @@
       color: white;
     }
 
+    /* Cartão branco para formulário e currículo com sombra e arredondamento */
     .card {
       background: white;
       padding: 25px;
@@ -65,6 +74,7 @@
       text-align: left;
     }
 
+    /* Rótulos alinhados à esquerda com negrito */
     label {
       display: block;
       text-align: left;
@@ -73,6 +83,7 @@
       color: #444;
     }
 
+    /* Inputs e selects estilizados para largura total e padding */
     input, select, textarea {
       width: 100%;
       padding: 12px;
@@ -82,11 +93,13 @@
       font-family: 'Poppins', sans-serif;
     }
 
+    /* Textarea com altura mínima e redimensionamento vertical */
     textarea {
       min-height: 80px;
       resize: vertical;
     }
 
+    /* Botões estilizados com cores e transições para hover */
     button {
       background: #6a11cb;
       color: white;
@@ -100,12 +113,14 @@
       font-weight: 500;
     }
 
+    /* Efeito hover para botões principais */
     button:hover {
       background: #5a0fb0;
       transform: translateY(-2px);
       box-shadow: 0 5px 15px rgba(106, 17, 203, 0.3);
     }
 
+    /* Botão secundário com cor diferente */
     button.secondary {
       background: #4ecdc4;
     }
@@ -114,6 +129,7 @@
       background: #44c7b0;
     }
 
+    /* Botão de limpar campos com cinza claro */
     button.clear {
       background: #ccc;
       color: #333;
@@ -123,11 +139,12 @@
       background: #bbb;
     }
 
+    /* Elementos ocultos com classe hidden */
     .hidden {
       display: none;
     }
 
-    /* === DICA DO DIA - VISÍVEL E CLARA === */
+    /* Caixa para dica do dia, texto branco sobre fundo semi-transparente */
     .dica {
       font-style: italic;
       color: white;
@@ -142,7 +159,7 @@
       text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
     }
 
-    /* === CURRÍCULO PROFISSIONAL === */
+    /* Currículo gerado, com formatação limpa e cores azuis */
     .curriculo {
       background: white;
       padding: 0;
@@ -154,6 +171,7 @@
       text-align: left;
     }
 
+    /* Título do currículo */
     .curriculo h1 {
       font-size: 24px;
       color: #2575fc;
@@ -162,12 +180,14 @@
       padding-bottom: 5px;
     }
 
+    /* Informação complementar do currículo em cinza */
     .curriculo .info {
       font-size: 14px;
       color: #666;
       margin-bottom: 20px;
     }
 
+    /* Subtítulos do currículo */
     .curriculo h2 {
       font-size: 18px;
       color: #2575fc;
@@ -176,10 +196,12 @@
       padding-bottom: 5px;
     }
 
+    /* Parágrafos e listas no currículo */
     .curriculo p, .curriculo ul {
       margin-bottom: 10px;
     }
 
+    /* Lista de marcadores para habilidades, cursos, etc */
     .curriculo ul {
       list-style-type: disc;
       margin-left: 20px;
@@ -189,7 +211,7 @@
       margin-bottom: 5px;
     }
 
-    /* === IMPRESSÃO: TUDO INVISÍVEL EXCETO O CURRÍCULO === */
+    /* Configura impressão para deixar só o currículo visível */
     @media print {
       body {
         background: white !important;
@@ -226,7 +248,7 @@
       }
     }
 
-    /* === RESPONSIVO === */
+    /* Estilos responsivos */
     @media (max-width: 600px) {
       .container {
         padding: 10px;
@@ -257,14 +279,14 @@
 </head>
 <body>
   <div class="container">
-    <!-- LOGO CENTRALIZADA -->
+    <!-- Cabeçalho com logo e título do projeto -->
     <header>
       <img src="https://raw.githubusercontent.com/acmonicalima/decola/main/decola.png" alt="Logo DECOLA" class="logo">
       <h1><strong>DECOLA</strong></h1>
       <p class="slogan">Planeje, Acredite, Conquiste</p>
     </header>
 
-    <!-- FORMULÁRIO -->
+    <!-- Formulário para entrada de dados do aluno e geração de currículo -->
     <div class="card" id="formCard">
       <label>Nome completo</label>
       <input type="text" id="nome" placeholder="Ex: Ana Silva">
@@ -303,11 +325,12 @@
       <label>Objetivo profissional</label>
       <textarea id="objetivo" placeholder="Ex: Buscar vaga de jovem aprendiz na área administrativa"></textarea>
 
+      <!-- Botão que executa a função de gerar currículo -->
       <button onclick="gerarPerfil()">Montar Meu Perfil</button>
       <button class="clear" onclick="limparCampos()">Limpar Campos</button>
     </div>
 
-    <!-- CURRÍCULO GERADO -->
+    <!-- Área onde o currículo gerado será exibido -->
     <div class="curriculo hidden" id="curriculoCard">
       <h1 id="curriculoNome">Seu Nome</h1>
       <div class="info" id="curriculoInfo"></div>
@@ -331,16 +354,18 @@
         <p id="curriculoExperiencia"></p>
       </div>
 
+      <!-- Botões de ações para salvar, mostrar dica e tentar novamente -->
       <button onclick="imprimirPerfil()">Salvar como PDF</button>
       <button class="secondary" onclick="mostrarDica()">Dica do Dia</button>
       <button onclick="voltarForm()">Tentar de Novo</button>
     </div>
 
-    <!-- DICA DO DIA - AGORA VISÍVEL -->
+    <!-- Caixa com dicas motivacionais que muda aleatoriamente -->
     <div class="dica" id="dicaDia">Carregando dica...</div>
   </div>
 
   <script>
+    // Array com frases motivacionais para exibir na interface
     const dicas = [
       "Você não precisa ter todas as respostas para dar o primeiro passo.",
       "Crescer nem sempre é rápido, mas é sempre possível.",
@@ -369,7 +394,9 @@
       "O seu potencial é infinito. Só depende de você acreditar."
     ];
 
+    // Função que coleta os dados do formulário e monta o currículo para exibição
     function gerarPerfil() {
+      // Captura os valores digitados pelo usuário
       const nome = document.getElementById("nome").value.trim();
       const idade = document.getElementById("idade").value.trim();
       const local = document.getElementById("local").value.trim();
@@ -382,19 +409,20 @@
       const experiencia = document.getElementById("experiencia").value.trim();
       const objetivo = document.getElementById("objetivo").value.trim();
 
+      // Validação simples para garantir que campos obrigatórios foram preenchidos
       if (!nome || !idade || !local || !whatsapp || !escolaridade || !escola || !habilidades || !objetivo) {
         alert("Por favor, preencha todos os campos obrigatórios.");
         return;
       }
 
-      // Atualiza o currículo
+      // Atualiza os elementos do documento com os dados do usuário para formar o currículo
       document.getElementById("curriculoNome").textContent = `${nome} (${idade} anos)`;
       document.getElementById("curriculoInfo").textContent = `${local} | ${whatsapp}${email ? ' | ' + email : ''}`;
       document.getElementById("curriculoObjetivo").textContent = objetivo;
       document.getElementById("curriculoEducacao").textContent = `${escolaridade} - ${escola}`;
       document.getElementById("curriculoHabilidades").textContent = habilidades;
 
-      // Cursos (opcional)
+      // Mostra ou oculta seção de cursos conforme preenchido
       const sectionCursos = document.getElementById("sectionCursos");
       if (cursos) {
         document.getElementById("curriculoCursos").textContent = cursos;
@@ -403,7 +431,7 @@
         sectionCursos.style.display = "none";
       }
 
-      // Experiência (opcional)
+      // Mostra ou oculta seção de experiência conforme preenchido
       const sectionExperiencia = document.getElementById("sectionExperiencia");
       if (experiencia) {
         document.getElementById("curriculoExperiencia").textContent = experiencia;
@@ -412,31 +440,33 @@
         sectionExperiencia.style.display = "none";
       }
 
-      // Mostra o currículo
+      // Esconde o formulário e mostra o currículo gerado
       document.getElementById("formCard").classList.add("hidden");
       document.getElementById("curriculoCard").classList.remove("hidden");
 
-      // Mostra dica inicial
+      // Exibe a primeira dica motivacional ao gerar o perfil
       document.getElementById("dicaDia").textContent = dicas[0];
     }
 
+    // Função para mostrar uma dica aleatória do array
     function mostrarDica() {
       const random = Math.floor(Math.random() * dicas.length);
       document.getElementById("dicaDia").textContent = dicas[random];
     }
 
+    // Função para voltar ao formulário para edição dos dados
     function voltarForm() {
       document.getElementById("curriculoCard").classList.add("hidden");
       document.getElementById("formCard").classList.remove("hidden");
     }
 
+    // Função que chama o diálogo de impressão para salvar o currículo em PDF
     function imprimirPerfil() {
       window.print();
     }
 
-    // ✅ CORREÇÃO: LIMPAR CAMPOS FUNCIONANDO
+    // Função para limpar todos os campos do formulário para facilitar nova entrada
     function limparCampos() {
-      // Limpa todos os inputs
       document.getElementById("nome").value = "";
       document.getElementById("idade").value = "";
       document.getElementById("local").value = "";
@@ -453,4 +483,3 @@
 </body>
 
 </html>
-
